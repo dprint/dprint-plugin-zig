@@ -1,0 +1,19 @@
+.{
+    .name = .dprint_plugin_zig,
+    // the plugin's version is in the VERSION file, which the plugin embeds
+    .version = "0.0.0",
+    .fingerprint = 0xe08d37d8394d0f01, // Changing this has security and trust implications.
+    // the Zig whose `zig fmt` the plugin formats like, which build.zig requires
+    // exactly, since the formatter is part of Zig's std. Bumped by scripts/update.ts.
+    .minimum_zig_version = "0.17.0",
+    .dependencies = .{},
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "main.zig",
+        "src",
+        "VERSION",
+        "LICENSE",
+        "third_party",
+    },
+}

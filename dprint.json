@@ -1,0 +1,33 @@
+{
+  "exec": {
+    "cwd": "${configDir}",
+    "commands": [
+      {
+        "command": "zig fmt --stdin",
+        "exts": [
+          "zig"
+        ]
+      },
+      {
+        "command": "zig fmt --stdin --zon",
+        "exts": [
+          "zon"
+        ]
+      }
+    ]
+  },
+  "excludes": [
+    "**/node_modules",
+    "**/*-lock.json",
+    "zig-out",
+    ".zig-cache",
+    "third_party",
+    "tests/specs"
+  ],
+  "plugins": [
+    "npm:@dprint/typescript@0.96.1",
+    "npm:@dprint/json@0.25.2",
+    "npm:@dprint/markdown@0.26.0",
+    "npm:@dprint/exec@0.8.0/plugin.json@9d6234ea05810c775f388c2a4cce82b9116b69294b65e0e1e9d64f1446283ef3"
+  ]
+}

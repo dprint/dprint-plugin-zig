@@ -1,0 +1,31 @@
+{
+  "name": "@dprint/zig",
+  "version": "0.0.0",
+  "description": "Wasm buffer for dprint-plugin-zig.",
+  "keywords": [
+    "zig",
+    "zon",
+    "zig fmt",
+    "code",
+    "formatter",
+    "dprint"
+  ],
+  "homepage": "https://github.com/dprint/dprint-plugin-zig#readme",
+  "bugs": {
+    "url": "https://github.com/dprint/dprint-plugin-zig/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dprint/dprint-plugin-zig.git"
+  },
+  "license": "MIT",
+  "author": "David Sherret",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "scripts": {
+    "test": "node index.test.js"
+  },
+  "devDependencies": {
+    "@dprint/formatter": "~0.4.0"
+  }
+}
