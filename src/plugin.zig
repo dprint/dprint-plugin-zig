@@ -215,7 +215,7 @@ pub const Plugin = struct {
 fn writePluginInfo(w: *Writer, version: []const u8) Writer.Error!void {
     try w.writeAll("{\"name\":\"dprint-plugin-zig\",\"version\":");
     try std.json.Stringify.encodeJsonString(version, .{}, w);
-    try w.writeAll(",\"configKey\":\"zig\",\"helpUrl\":\"https://github.com/dprint/dprint-plugin-zig\",\"configSchemaUrl\":\"");
+    try w.writeAll(",\"configKey\":\"zig\",\"helpUrl\":\"https://dprint.dev/plugins/zig\",\"configSchemaUrl\":\"");
     try w.print("https://plugins.dprint.dev/dprint/dprint-plugin-zig/{s}/schema.json", .{version});
     try w.writeAll("\",\"updateUrl\":\"https://plugins.dprint.dev/dprint/dprint-plugin-zig/latest.json\"}");
 }
@@ -259,7 +259,7 @@ test "plugin info" {
     defer plugin.deinit();
     const len = try plugin.pluginInfo("1.2.3");
     try expectSharedBytes(&plugin, len, "{\"name\":\"dprint-plugin-zig\",\"version\":\"1.2.3\",\"configKey\":\"zig\"," ++
-        "\"helpUrl\":\"https://github.com/dprint/dprint-plugin-zig\"," ++
+        "\"helpUrl\":\"https://dprint.dev/plugins/zig\"," ++
         "\"configSchemaUrl\":\"https://plugins.dprint.dev/dprint/dprint-plugin-zig/1.2.3/schema.json\"," ++
         "\"updateUrl\":\"https://plugins.dprint.dev/dprint/dprint-plugin-zig/latest.json\"}");
 }
