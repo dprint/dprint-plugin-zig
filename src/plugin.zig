@@ -217,7 +217,7 @@ fn writePluginInfo(w: *Writer, version: []const u8) Writer.Error!void {
     try std.json.Stringify.encodeJsonString(version, .{}, w);
     try w.writeAll(",\"configKey\":\"zig\",\"helpUrl\":\"https://dprint.dev/plugins/zig\",\"configSchemaUrl\":\"");
     try w.print("https://plugins.dprint.dev/dprint/dprint-plugin-zig/{s}/schema.json", .{version});
-    try w.writeAll("\",\"updateUrl\":\"https://plugins.dprint.dev/dprint/dprint-plugin-zig/latest.json\"}");
+    try w.writeAll("\",\"updateUrl\":\"https://plugins.dprint.dev/dprint/dprint-plugin-zig/latest.json\",\"supportsRangeFormatting\":false}");
 }
 
 fn writeDiagnostics(w: *Writer, resolved: config.ResolvedConfig) Writer.Error!void {
@@ -261,7 +261,7 @@ test "plugin info" {
     try expectSharedBytes(&plugin, len, "{\"name\":\"dprint-plugin-zig\",\"version\":\"1.2.3\",\"configKey\":\"zig\"," ++
         "\"helpUrl\":\"https://dprint.dev/plugins/zig\"," ++
         "\"configSchemaUrl\":\"https://plugins.dprint.dev/dprint/dprint-plugin-zig/1.2.3/schema.json\"," ++
-        "\"updateUrl\":\"https://plugins.dprint.dev/dprint/dprint-plugin-zig/latest.json\"}");
+        "\"updateUrl\":\"https://plugins.dprint.dev/dprint/dprint-plugin-zig/latest.json\",\"supportsRangeFormatting\":false}");
 }
 
 test "config" {
