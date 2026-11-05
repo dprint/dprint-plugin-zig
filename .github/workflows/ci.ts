@@ -29,6 +29,14 @@ const buildJob = job("build", {
     // the spec tests compare the plugin to this zig's `zig fmt`
     { name: "Test", run: "zig build test --summary all" },
     { name: "Build", run: "zig build" },
+    // checks the playground sample of the config schema
+    {
+      name: "Generate config schema",
+      run: [
+        "deno run -A --minimum-dependency-age=0 jsr:@dprint/automation@0.14.3/tasks/publish-schema",
+        "zig-out/plugin.wasm deployment/schema.json --extension zig",
+      ].join(" "),
+    },
     {
       name: "Lint workflow generation",
       run: [
