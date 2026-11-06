@@ -4,5 +4,33 @@
   "title": "dprint-plugin-zig",
   "description": "zig fmt has no formatting options, so neither does this plugin.",
   "type": "object",
+  "x-playground": {
+    "input": [
+      "const std=@import(\"std\");",
+      "",
+      "const Shape=union(enum){",
+      "  circle:f64,",
+      "  rectangle:struct{width:f64,height:f64},",
+      "",
+      "  fn area(self:Shape)f64{",
+      "    return switch(self){",
+      "      .circle=>|r| std.math.pi*r*r,",
+      "      .rectangle=>|rect| rect.width*rect.height,",
+      "    };",
+      "  }",
+      "};",
+      "",
+      "pub fn main()!void{",
+      "    const shapes=[_]Shape{.{.circle=1.5},.{.rectangle=.{.width=2,.height=3}}};",
+      "    var total:f64=0;",
+      "    for(shapes,0..)|shape,i|{",
+      "        total+=shape.area();",
+      "        std.debug.print(\"shape {d}: {d:.2}\\n\",.{i,shape.area()});",
+      "    }",
+      "    if(total>10) std.debug.print(\"large total: {d:.2}\\n\",.{total})",
+      "    else std.debug.print(\"total: {d:.2}\\n\",.{total});",
+      "}"
+    ]
+  },
   "properties": {}
 }
